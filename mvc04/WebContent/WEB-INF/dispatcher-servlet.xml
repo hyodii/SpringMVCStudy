@@ -16,4 +16,35 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<!-- 이 과정에서 Front Controller 가 갖고있는 확장자의 형태로 구성한다. -->
 	<!--    - 『class=""』 속성은 Controlloer 객체의 클래스 경로 및 이름을 등록한다. -->
 	
+	<!-- #19. dispatcher-servlet.xml -->
+	
+	<!-- DataSource 등록 → SimpleDriverDataSource -->
+	<bean id="localDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
+		<property name="username" value="scott"></property>
+		<property name="password" value="tiger"></property>
+	</bean>
+	
+	<bean id="remoteDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@211.238.142.169:1521:xe"></property>
+		<property name="username" value="scott"></property>
+		<property name="password" value="tiger"></property>
+	</bean>
+	
+	
+	<!-- DAO 등록 -->
+	<bean id="employeeDAO" class="com.test.mvc.EmployeeDAO">
+		<property name="dataSource" ref="remoteDataSource"></property>
+	</bean>
+	
+	<!-- Employee 관련 Controller 등록 -->
+	<bean name="/employeelist.action" class="com.test.mvc.EmployeeListController">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
+	
+	
+	
+	
 </beans>
