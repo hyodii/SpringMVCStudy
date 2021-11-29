@@ -1,0 +1,13 @@
+/*===========================
+	SampleController.java
+	- 사용자 정의 컨트롤러
+===========================*/
+
+package com.test.mvc;
+
+import org.springframework.web.servlet.mvc.Controller;
+
+public class SampleController implements Controller
+{
+
+}

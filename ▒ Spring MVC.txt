@@ -1,0 +1,122 @@
+■■■ Spring MVC ■■■
+
+1. 웹 개발을 위한 MVC 패턴이 적용된 Spring Framework.
+   Spring 에서는 DispatcherServlet 클래스가 컨트롤러 역할을 수행하게 된다.
+
+2. Spring MVC 의 주요 구성요소
+   - DispatcherServlet
+     : 클라이언트의 요청을 전달받는다.
+       Controller(사용자 정의 컨트롤러)에게 클라이언트의 요청을 전달하고,
+       Controller 가 리턴한 결과값을 View에 전달하여
+       적합한 응답을 생성하도록 처리한다.
+   - HandlerMapping
+     : 클라이언트의 요청 URL 을 어떤 Controller 가 처리할지 결정한다.
+   - Controller : 사용자 정의 Controller. 액션 처리. 우리가 작성.
+     : 사용자 정의 Controller. 액션 처리. 우리가 작성.
+   - ModelAndView
+     : View 객체 정보와 결과값이 들어있는 객체.
+   - ViewResolver
+     : 요청에 대한 처리 결과를 보여줄 View를 결정한다.
+   - View 
+     : 요청에 대한 처리 결과를 보여줄 응답(결과 출력)을 생성한다. 우리가 작성.
+   - web.xml 
+     : DispatcherServlet 서블릿 객체 등록. 우리가 작성.
+     
+   - dispatcher-servlet.xml 
+     : Controller 객체 등록. 우리가 작성.
+
+3. Spring MVC 실행 흐름
+   - 사용자 요청 -> DispatcherServlet.
+   - DispatcherServlet → HandlerMapping 에 주소 분석 요청.
+   - DispathcerServlet → 특정 Controller 객체 호출 및 결과 수신.
+   			  결과는 ModelAndView 객체.
+   
+     ※ ModelAndView 객체
+   	: View 객체 정보와 결과값이 들어있는 객체.
+   - DispatcherServlet → ViewResolver 에 View 객체 분석 요청.
+   - DispatcherServlet → 특정 View 객체에 Model 객체를 넘겨주고
+			  결과 출력.
+* Front Controllor : DispatcherServlet 
+
+
+4. Spring MVC 에서 우리가 해야 할 일
+   - Controller (사용자 정의 컨트롤러)
+     액션 처리를 담당하는 Controller 클래스 작성.
+     Annotation 을 사용하거나 Controller 인터페이스를 구현하여 작성.
+
+   - View
+     결과 출력용 JSP 페이지 작성.
+  
+   - web.xml
+     서블릿 주소와 DispatcherServlet 클래스 등록.
+
+   - dispatcher-servlet.xml (dispatcher-servlet 이라는 정해진 이름 써야함!)
+     우리가 작성한 Controller 객체 등록.
+     URL 매핑 주소 등록.
+
+
+※ Spring 이 스트럿츠를 비롯하여 다양한 웹 프레임워크와
+   비교적 연동이 잘 되는 편이기는 하지만
+   서로 다른 두 프레임워크를 연동하기 위해서는
+   설정의 중복 등 개발 과정에서 불편함이 존재할 수 밖에 없다.
+   따라서, Spring 이 자체적으로 제공하는 MVC 프레임워크를 사용하게 되면
+   Spring 이 제공하는 AOP, 트랜잭션 처리, IoC/DI 등의 기능을
+   그대로 사용하면서 MVC 패천에 기반하여 웹 어플리케이션을 개발할 수 있다.
+   또한, 다른 프레임워크와 Spring 을 연동하기 위해서
+   설정을 중복해서 적용해야 한다던지... 하는 개발 과정에서 나타나는
+   불편을 해소할 수 있게 된다.
+
+
+
+--------------------------------------------------------------------------------------------------------------
+
+■■■ Spring MVC 프로젝트 실습 01 ■■■
+
+○ Perspective
+   : JavaEE
+○ 다이나믹 웹 프로젝트 생성
+   : mvc01
+○ 톰캣 서버 등록 및 포트(port) 설정
+   : port 8090 / URIEncoding="UTF-8"
+○ 기타 환경 설정
+   : 폰트, 줄번호, 편집포맷, 인코딩방식, 템플릿 등...
+○ Spring MVC 환경 설정을 위한 라이브러리 등록
+   : WebContent > WEB-INF > lib 경로에 등록
+   - 경로1 → C:\s-f-3.0.2-with-docs\spring-framework-3.0.2.RELEASE\dist
+     · 파일 1  → org.springframework.aop-3.0.2.RELEASE.jar
+     · 파일 2  → org.springframework.asm-3.0.2.RELEASE.jar
+     · 파일 3  → org.springframework.beans-3.0.2.RELEASE.jar
+     · 파일 4  → org.springframework.context-3.0.2.RELEASE.jar
+     · 파일 5  → org.springframework.core-3.0.2.RELEASE.jar
+     · 파일 6  → org.springframework.expression-3.0.2.RELEASE.jar
+     · 파일 7  → org.springframework.jdbc-3.0.2.RELEASE.jar
+     · 파일 8  → org.springframework.transaction-3.0.2.RELEASE.jar
+     · 파일 9  → org.springframework.web.servlet-3.0.2.RELEASE.jar
+     · 파일 10 → org.springframework.web-3.0.2.RELEASE.jar
+
+   - 경로2 → C:\s-f-3.0.2-dependencies\org.apache.commons\com.springsource.org.apache.commons.logging\1.1.1
+     · 파일 11 → com.springsource.org.apache.commons.logging-1.1.1.jar
+
+   - 경로3 → C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib
+              (오라클 설치 경로)
+     · 파일 12 → ojdbc6.jar
+
+   - 경로4 → C:\Downloads\10_JSTL\jakarta-taglibs-standard-1.1.2\jakarta-taglibs-standard-1.1.2\lib
+              (JSTL 다운로드 경로)
+     · 파일 13 → jstl.jar
+     · 파일 14 → standard.jar
+
+
+○ 물리적 파일 구성
+   - HelloController.java
+   - Hello
+   - dispatcher-servlet.xml
+   - web.xml
+
+○ 사용자 최초 요청 주소
+http://localhost:8090/mvc01/hello.action
+
+
+
+
+
