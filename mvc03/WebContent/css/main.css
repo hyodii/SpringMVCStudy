@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+body, p, div, span, input, table, th, td, select, textarea
+{
+	font-size: 18px;
+	color: #343;
+	font-family: 맑은 고딕;
+}
+
+a
+{
+	text-decoration: none;
+	color: gray;
+}
+
+a:hover
+{
+	text-decoration: underline;
+	color: red;
+}
+
+.control
+{
+	border: 1px solid gray;
+	border-radius: 3px;
+	margin: 1px 0px 1px 0px;
+}
+
+#customers
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#customers th, #customers td
+{
+	border: 1px solid gray;
+	border-left: 0px;
+	border-right: 0px;
+	
+	padding: 3px;
+	line-height: 150%;
+}
+
+#customers th
+{
+	font-weight: bold;
+	background-color: #EEE;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

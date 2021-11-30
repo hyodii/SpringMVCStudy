@@ -118,5 +118,174 @@ http://localhost:8090/mvc01/hello.action
 
 
 
+※ 우리가 작성한 mvc01 프로젝트의 실행 및 처리 과정
+     ① 외부 요청
+        http://localhost:8090/mvc01/hello/action
+   
+        → web.xml 관여
+           (→ Front Controller 등록 → DispatcherServlet 등록)
+
+     ② DispatcherServlet 요청 접수
+  
+        → web.xml → DispatcherServlet 등록
+           web.xml → URL패턴 등록
+
+        → 사용자의 요청 분석 → 특정 컨트롤러 지정
+
+     ③ 해당 컨트롤러의 특정 메소드 호출 (액션 처리, ModelAndView 객체 반환)
+
+        → 사용자의 요청에 맞는 액션 처리
+
+        →결과 데이터가 들어있는 모델 객체 준비
+
+        → 뷰 정보(JSP 페이지 정보) 반환
+
+           ※ JSP 페이지 정보
+               - 여기서는 객체가 아닌 경로가 포함된 View 페이지 이름
+
+      ④ 뷰 페이지에서 최종 웹 페이지를 작성
+
+         → JSP 페이지 내에서 EL 이나 JSTL 등의 표기 사용 가능
+  
+      ⑤ 응답 완료
+
+
+--------------------------------------------------------------------------------------------------------------
+■■■ Spring MVC 프로젝트 실습 2 ■■■
+
+○ Perspective
+   : JavaEE
+
+○ 다이나믹 웹 프로젝트 생성
+   : mvc02
+
+○ 기본 환경 구성 및 라이브러리 설정
+   : mvc00 (우리가 임의로 만들어 둔 샘플)로 부터
+     src, WebContent 디렉터리 복사 & 붙여넣기
+
+○ 실습 성격
+   : 데이터 송수신 관련 실습 (Spring MVC 버전)
+
+○ 물리적 파일 구성
+   - SendController.java	→ 컨트롤러 객체
+   - Send.jsp			→ 뷰 객체
+
+   - ReceiveController.java	→ 컨트롤러 객체
+   - Receive.jsp		→ 뷰 객체
+	
+   - dispatcher-servlet.xml	→ 컨트롤러 객체 등록 / URL 매핑 주소 등록
+
+   - web.xml			→ DispatcherServlet 객체 등록 / URL 매핑 주소 등록
+
+
+○ 사용자 최초 요청 주소
+http://localhost:8090/mvc02/send.do
+
+
+--------------------------------------------------------------------------------------------------------------
+■■■ Spring MVC 프로젝트 실습 3 ■■■
+
+○ Perspective
+   : JavaEE
+
+○ 다이나믹 웹 프로젝트 생성
+   : mvc03
+
+○ 기본 환경 구성 및 라이브러리 설정
+   : mvc00 (우리가 임의로 만들어 둔 샘플)로 부터
+     src, WebContent 디렉터리 복사 & 붙여넣기
+
+○ 실습 성격
+   : 데이터 송수신 관련 실습 (Spring MVC 버전)
+     JDBC 모듈 추가 활용  (추가)
+     SimpleDriverDataSource 클래스 활용 (추가)
+
+○ 기능 구현
+   : 사용자로부터 이름, 전화번호 정보를 입력받아 데이터베이스에 저장
+     이름, 전화번호 항목을 데이터베이스로부터 읽어 화면에 출력
+
+○ 사전 작업
+   - TBL_MEMBERLIST 테이블 생성
+   - MEMBERLISTSEQ 시퀀스 생성
+   - 샘플 데이터 입력
+   
+○ 기본 레이아웃(페이지 화면 구성)
+   이름 [          ]    → <input type="text">
+   전화 [          ]    → <input type="text">
+    <회원 추가>         → <button type="button">
+
+   전체 인원 수 : 2명   → <p>...</p>
+  -------------------   → <table>...</table>
+   번호 이름 전화번호
+    1   장.. 010...
+    2   정.. 010...
+  -------------------
+
+
+○ 물리적 파일 구성
+  
+   - mvc03_scott.sql			→ 데이터베이스 관련 객체 구성 및 실습 데이터 준비.
+
+   - MemberDTO.java			→ 사용자 정의 자료형 클래스 (DTO 활용)
+
+   - IMemberDAO.java			→ 인터페이스
+   - MemberDAO.java			→ 데이터베이스 액션 처리 클래스
+					   Connection 객체에 대한 의존성 주입
+                                           (setter 메소드 추가)
+
+   - MemberListController.java		→ 사용자 정의 컨트롤러 클래스
+                         		   리스트 출력 액션
+                                           DAO 객체에 대한 의존성 주입
+                                           (setter 메소드 추가)
+   - MemberList.jsp			→  회원 명단 출력용 뷰
+                                            회원 정보 추가 폼 화면 구성
+
+   - MemberInsertController.java	→  사용자 정의 컨트롤러 클래스
+                                            회원 정보 추가 액션
+                                            DAO 객체에 대한 의존성 주입
+                                            (setter 메소드 추가)
+  
+   - dispatcher-servlet.xml		→ 컨트롤러 객체 등록
+                                           URL 매핑 주소 등록
+                                           SimpleDriverDataSource 객체 등록
+                                           의존 객체 주입 설정
+                                           DAO 객체 등록 
+	
+   - web.xml				→ DispatcherServlet 객체 등록
+                                           URL 매핑 주소 등록
+
+○ 사용자 최초 요청 주소
+http://localhost:8090/mvc03/memberlist.action
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
