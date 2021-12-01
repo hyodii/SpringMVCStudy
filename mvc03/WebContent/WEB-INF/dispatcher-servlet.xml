@@ -20,7 +20,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
    <!-- 매핑 주소를 입력하는게 아니고, 개체를 식별하는 용도로 입력했기에 id속성 -->
    <bean id="localDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
       <property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
-      <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property> <!-- 집가서는 학원 아이피 주소로 변경! -->
+      <property name="url" value="jdbc:oracle:thin:@211.238.142.169:1521:xe"></property> <!-- 집가서는 학원 아이피 주소로 변경! -->
       <property name="username" value="scott"></property>
       <property name="password" value="tiger"></property>
    </bean>
@@ -45,5 +45,16 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
          <ref bean="memberDAO"/>
       </property>
    </bean>
+   
+   
+   <!-- MemberInsertController -->
+   <bean name="/memberinsert.action" class="com.test.mvc.MemberInsertController">
+   		<property name="dao">
+         	<ref bean="memberDAO"/>
+      	</property>
+   </bean>
+   
+   
+   
    
 </beans>

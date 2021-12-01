@@ -258,10 +258,174 @@ http://localhost:8090/mvc02/send.do
 http://localhost:8090/mvc03/memberlist.action
 
 
+--------------------------------------------------------------------------------------------------------------
+■■■ Spring MVC 프로젝트 실습 4 ■■■
+
+○ Perspective
+   : JavaEE
+
+○ 다이나믹 웹 프로젝트 생성
+   : mvc04
+
+○ 기본 환경 구성 및 라이브러리 설정
+   : mvc00 (우리가 임의로 만들어 둔 샘플)로 부터
+     src, WebContent 디렉터리 복사 & 붙여넣기
+
+○ 실습 성격
+   : 직원 관리 프로그램 (Spring MVC 버전)
+     JDBC 모듈 추가 활용  (추가)
+     SimpleDriverDataSource 클래스 활용 (추가)
+
+○ 기능 구현
+   - 직원 정보 출력, 입력, 삭제, 수정 기능 구현.
+   - 지역 정보 출력, 입력, 삭제, 수정 기능 구현.
+   - 부서 정보 출력, 입력, 삭제, 수정 기능 구현.
+   - 직위 정보 출력, 입력, 삭제, 수정 기능 구현.
+   - 로그인 / 로그아웃 기능 구현.
+     → 관리자 및 일반 직원 로그인 구분.
+   ==> Spring MVC, JSP/Servlet, ORACLE, HTML/CSS/Javascript, AJAX
+       , jQuery, EL, JSTL 표현 등 사용.
+
+○ 사전 작업 → 테이블 및 시퀀스, 주요 쿼리문 구성
+   - EMPLOYEE 직원 테이블
+   - REGION 지역 테이블
+   - DEPARTMENT 부서 테이블
+   - POSITION 직위 테이블
+   - 샘플 데이터 입력   
+
+○ 물리적 파일 구성
+  
+   - mvc04_scott.sql		→ 데이터베이스 관련 객체 구성 및 실습 데이터 준비.
+
+   - Employee.java		→ DTO 개념. 직원 정보 자료형 클래스.
+   - Department.java		→ DTO 개념. 부서 정보 자료형 클래스.
+   - Region.java		→ DTO 개념. 지역 정보 자료형 클래스.
+   - Position.java		→ DTO 개념. 직위 정보 자료형 클래스.
+
+   - IEmployeeDAO.java		→ 인터페이스.
+   - IDepartment.java		→ 인터페이스.
+   - IRegion.java		→ 인터페이스.
+   - IPosition.java		→ 인터페이스.
+
+   - EmployeeDAO.java		→ 데이터베이스 액션 처리 클래스.
+                                   직원 정보 입출력 액션, 수정 액션.
+                                   Connection 객체에 대한 의존성 주입 준비(setter 정의)
+
+   - DepartmentDAO.java		→ 데이터베이스 액션 처리 클래스.
+                                   부서 정보 입출력 액션, 수정 액션.
+                                   Connection 객체에 대한 의존성 주입 준비(setter 정의)
+
+   - RegionDAO.java		→ 데이터베이스 액션 처리 클래스.
+                                   지역 정보 입출력 액션, 수정 액션.
+                                   Connection 객체에 대한 의존성 주입 준비(setter 정의)
+
+   - PositionDAO.java		→ 데이터베이스 액션 처리 클래스.
+                                   직위 정보 입출력 액션, 수정 액션.
+                                   Connection 객체에 대한 의존성 주입 준비(setter 정의)
 
 
+   - EmployeeMenu.jsp		→ 메인 메뉴 뷰 페이지. 로그아웃 처리.
+   - menuStyle.css		→ 메뉴 스타일 구성.
+
+   - EmployeeList.jsp		→ 직원 정보 출력 페이지.
+   - main.css			→ 메인 스타일 구성.
+
+   - EmployeeInsertForm.jsp	→ 직원 정보 입력 폼 페이지.
+                                   AJAX, jQuery 기능 포함.
+   - EmployeeUpdateForm.jsp	→ 직원 정보 수정 폼 페이지
+                                   AJAX, jQuery 기능 포함.
+   
+   - DepartmentList.jsp		→ 부서 정보 출력 페이지.
+                                   입력, 수정 폼 페이지.
+    
+   - RegionList.jsp		→ 지역 정보 출력 페이지.
+                                   입력, 수정 폼 페이지.
+
+   - PositionList.jsp		→ 직위 정보 출력 페이지.
+                                   입력, 수정 폼 페이지.
+   
+   - Ajax.jsp			→ JAX 객체 구성 페이지
+ 
+   - LoginForm.jsp		→ 관리자, 일반사원 로그인 폼 페이지
+                                   ID(employeeId), PW(주민번호 뒷자리 7자리) 입력
+   - LogoutForm.jsp		→ 로그아웃 처리와 관련한 폼 페이지
+
+   - EmpList.jsp		→ 일반 직원 전용 리스트 출력 페이지
+                                   로그아웃 처리
+                                   입력, 수정, 삭제 기능 없음.
+
+   - ...중략...
+
+   - EmployeeListController.java 
+     (employeelist.action)
+
+   - EmployeeInsertFormController.java
+     (employeeinsertform.action)
+
+   - AjaxController.java
+     (ajax.action)
+
+   - EmployeeInsertController.java
+     (employeeinsert.action)
+
+   - EmployeeUpdateFormController.java
+     (employeeinsertform.action)
+
+   - EmployeeUpdateController.java
+     (employeeupdate.action)
+
+   - EmployeeDeleteController.java
+     (employeedelete.action)
 
 
+   - DepartmentListController.java 
+   - DepartmentInsertFormController.java
+   - DepartmentInsertController.java
+   - DepartmentUpdateFormController.java
+   - DepartmentUpdateController.java
+   - DepartmentDeleteController.java
+
+   - RegionListController.java 
+   - RegionInsertFormController.java
+   - RegionInsertController.java
+   - RegionUpdateFormController.java
+   - RegionUpdateController.java
+   - RegionDeleteController.java
+
+   - PositionListController.java 
+   - PositionInsertFormController.java
+   - PositionInsertController.java
+   - PositionUpdateFormController.java
+   - PositionUpdateController.java
+   - PositionDeleteController.java
+
+   - LoginFormController.java
+   - LoginController.java
+   - LogoutController.java
+
+   - EmpListController.java
+ 
+   - ... 중략...
+
+  
+   - dispatcher-servlet.xml		→ 컨트롤러 객체 등록
+                                           URL 매핑 주소 등록
+                                           SimpleDriverDataSource 객체 등록
+                                           의존 객체 주입 설정
+                                           DAO 객체 등록 
+	
+   - web.xml				→ DispatcherServlet 객체 등록
+                                           URL 매핑 주소 등록
+
+○ 사용자 최초 요청 주소
+http://localhost:8090/mvc04/employeelist.action
+
+※ 추후 우리는 실무 프로젝트를 수행하는 과정에서
+   컨트롤러를 업무 단위로 묶어 작업 및 처리하게 될 것이다.
+   이후, 어노테이션을 활용하여 컨트롤러를 지정해서 처리하는 것도 수행하게 될 것이다.
+   하지만, 이번 실습 과정에서 기본 단위의 컨트롤러 구성을 수행해 봄으로써
+   Model-View-Controller 의 기능 및 처리 흐름에 대해
+   제대로 파악할 수 있도록 한다.
 
 
 
