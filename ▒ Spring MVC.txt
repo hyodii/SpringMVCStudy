@@ -303,9 +303,9 @@ http://localhost:8090/mvc03/memberlist.action
    - Position.java		→ DTO 개념. 직위 정보 자료형 클래스.
 
    - IEmployeeDAO.java		→ 인터페이스.
-   - IDepartment.java		→ 인터페이스.
-   - IRegion.java		→ 인터페이스.
-   - IPosition.java		→ 인터페이스.
+   - IDepartmentDAO.java		→ 인터페이스.
+   - IRegionDAO.java		→ 인터페이스.
+   - IPositionDAO.java		→ 인터페이스.
 
    - EmployeeDAO.java		→ 데이터베이스 액션 처리 클래스.
                                    직원 정보 입출력 액션, 수정 액션.
