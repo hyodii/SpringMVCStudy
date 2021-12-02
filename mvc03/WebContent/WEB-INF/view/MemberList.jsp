@@ -33,6 +33,7 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
+/* 제이쿼리 */
 	$(document).ready(function()
 	{
 		$("#submitBtn").click(function()

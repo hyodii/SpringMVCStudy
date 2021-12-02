@@ -1,5 +1,5 @@
 /*===========================================
-	MemberDAO.java
+	MemberDAO.java (모터)
 	- 데이터베이스 액션 처리 클래스
 	- Connection 객체에 대한 의존성 주입
 	  → setter 메소드 추가

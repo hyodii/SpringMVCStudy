@@ -1,5 +1,5 @@
 /*=========================================
-	MemberListController.java
+	MemberListController.java (선풍기)
 	- 사용자 정의 컨트롤러
 	- 리스트 출력 액션
 	- DAO 객체에 대한 의존성 주입

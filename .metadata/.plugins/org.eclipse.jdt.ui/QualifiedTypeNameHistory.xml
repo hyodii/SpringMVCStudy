@@ -4,4 +4,5 @@
 <fullyQualifiedTypeName name="org.springframework.web.servlet.DispatcherServlet"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.Controller"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="com.test.mvc.MemberDTO"/>
 </qualifiedTypeNameHistroy>

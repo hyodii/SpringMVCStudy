@@ -55,7 +55,7 @@ public class MemberInsertController implements Controller
 		
 		// sendRedirect()
 		//mav.setViewName("/WEB-INF/view/MemberList.jsp");  //← 틀린 것 그냥 뷰를 지정하고 뷰한테 아무것도 주지 않음
-		mav.setViewName("redirect:memberlist.action");
+		mav.setViewName("redirect:memberlist.action");		//(컨트롤러를 통해서 요청) → count, lists
 		
 		
 		return mav;
