@@ -39,6 +39,14 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="dataSource" ref="remoteDataSource"></property>
 	</bean>
 	
+	
+	<!-- AJAX 관련 Controller 등록 -->
+	<bean name="/ajax.action" class="com.test.mvc.AjaxController">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
+	
+	
+	
 	<!-- Employee 관련 Controller 등록 -->
 	<bean name="/employeelist.action" class="com.test.mvc.EmployeeListController">
 		<property name="dao" ref="employeeDAO"></property>
@@ -46,7 +54,10 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	
 	
 	<!-- EmployeeInsertFormController 등록 -->
-	<bean name="/employeeinsertform.action" class="com.test.mvc.EmployeeInsertFormController"></bean>
+	<bean name="/employeeinsertform.action" class="com.test.mvc.EmployeeInsertFormController">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
+	
 	
 	
 </beans>

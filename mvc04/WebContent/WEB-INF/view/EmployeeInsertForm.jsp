@@ -10,6 +10,74 @@
 <meta charset="UTF-8">
 <title></title>
 <link rel="stylesheet" type="text/css" href="<%=cp%>/css/main.css">
+<link rel="stylesheet" type="text/css" href="<%=cp%>/css/jquery-ui.css">
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="<%=cp%>/js/jquery-ui.js"></script>
+
+<script type="text/javascript">
+
+	//$();	// jquery(); 	// 달러는 제이쿼리 객체를 말하는 것!
+	$(document).ready(function()
+	{
+		
+		// Ajax 요청 및 응답 처리 한 번 더 (처음 로드했을 때 기본급 백만나오게하기 위함)
+		ajaxRequest();
+		
+		// jQuery-UI 캘린더를 불러오는 함수 처리(datepicker())
+		$("#birthday").datepicker(
+		{
+		   dateFormat:"yy-mm-dd"
+		   , changeMonth: true
+		   , changeYear: true
+		});
+		
+		// 직위(select)의 선택도니 내용이 변경되어을 경우 수행해야 할 코드 처리
+		$("#positionId").change(function()
+		{
+		   //테스트
+		   //alert("직위 변경");
+		   
+		   // Ajax 요청 및 응답 처리
+		   ajaxRequest();
+		   
+		});
+	   
+	});
+	
+	
+	function ajaxRequest()
+	{
+	   //alert("Ajax 요청 및 응답 처리");
+	   
+	   // 『$.post()』 / 『$.get()』
+	   //-- jQuery 에서 Ajax 를 써야 할 경우 지원해주는 함수.
+	   //   (서버 측에서 요청한 데이터를 받아오는 기능의 함수)
+	   
+	   // ※ 이 함수(『$.post()』)의 사용 방법(방식)					// 제이쿼리로 ajax이용하면 예전에 했던 방식에 비해 코드가 확 줄어든다!
+	   //--  『$.post(요청주소, 전송데이터, 응답액션처리)』
+	   //    ·요청주소(url)
+	   //      → 데이터를 요청할 파일에 대한 정보
+	   //    ·전송데이터(data)
+	   //      → 서버 측에 요청하는 과정에서 내가 전달할 파라미터
+	   //    ·응답액션처리(function)
+	   //      → 응답을 받을 수 있는 함수
+	   //         기능 처리
+	   
+	   // ※ 참고로 data 는 파라미터의 데이터타입을 그대로 취하게 되므로
+	   //    html 이든, 문자열이든 상관이 없다.
+	   
+	   //					 ----------- {} json형태!	
+	   $.post("ajax.action", {positionId : $("#positionId").val() }, function(data)
+		{
+			$("#minBasicPay").html(data);
+		});
+	   
+	}
+
+</script>
+
 </head>
 <body>
 
@@ -69,12 +137,18 @@
 					</td>
 				</tr>
 				<tr>
+					<!-- 컨트롤러로부터 받아와야하고 컨트롤러는 DAO 에서 받아와야함 -->
 					<th>지역</th>
 					<td>
 						<select name="regionId" id="regionId">
+							<!-- 
 							<option value="1">마포</option>
 							<option value="2">은평</option>
 							<option value="3">성북</option>
+							-->
+							<c:forEach var="region" items="${regionList }">
+								<option value="${region.regionId }">${region.regionName }</option>
+							</c:forEach>
 						</select>
 					</td>
 				</tr>
@@ -82,19 +156,29 @@
 					<th>부서</th>
 					<td>
 						<select name="departmentId" id="departmentId">
+							<!-- 
 							<option value="1">독서부</option>
 							<option value="2">축구부</option>
 							<option value="3">원예부</option>
+							-->
+							<c:forEach var="department" items="${departmentList }">
+								<option value="${department.departmentId }">${department.departmentName }</option>
+							</c:forEach>
 						</select>
 					</td>
 				</tr>
 				<tr>
 					<th>직위</th>
 					<td>
-						<select name="positionId" id="positionId">
+						<select name="positionId" id="positionId" >
+							<!-- 
 							<option value="1">팀장</option>
 							<option value="2">기술고문</option>
 							<option value="3">팀원</option>
+							-->
+							<c:forEach var="position" items="${positionList }">
+								<option value="${position.positionId }">${position.positionName }</option>
+							</c:forEach>
 						</select>
 					</td>
 				</tr>
