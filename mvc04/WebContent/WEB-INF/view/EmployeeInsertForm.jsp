@@ -68,7 +68,7 @@
 	   // ※ 참고로 data 는 파라미터의 데이터타입을 그대로 취하게 되므로
 	   //    html 이든, 문자열이든 상관이 없다.
 	   
-	   //					 ----------- {} json형태!	
+	   //			----------- {} json형태!	                      ---- result	
 	   $.post("ajax.action", {positionId : $("#positionId").val() }, function(data)
 		{
 			$("#minBasicPay").html(data);
