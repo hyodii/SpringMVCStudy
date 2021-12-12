@@ -42,6 +42,7 @@ public class EmployeeUpdateFormController implements Controller
 	public void setPositionDAO(IPositionDAO positionDAO)
 	{
 		this.positionDAO = positionDAO;
+	
 	}
 
 
@@ -61,8 +62,6 @@ public class EmployeeUpdateFormController implements Controller
 			String employeeId = request.getParameter("employeeId");
 			
 			Employee employee = new Employee();
-			
-			
 			
 		} catch (Exception e)
 		{
