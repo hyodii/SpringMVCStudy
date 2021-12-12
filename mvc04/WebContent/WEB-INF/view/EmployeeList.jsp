@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
@@ -10,6 +11,33 @@
 <meta charset="UTF-8">
 <title>EmployeeList.jsp</title>
 <link rel="stylesheet" type="text/css" href="<%=cp%>/css/main.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	$(function()
+	{
+		// 수정 버튼 클릭
+		$(".updateBtn").click(function()
+		{
+			// 테스트
+			//alert("수정 버튼 클릭 테스트");
+			
+			$(location).attr("href", "employeeupdateform.action?employeeId=" + $(this).val())
+			
+		});
+		
+		// 삭제 버튼 클릭
+		$(".deleteBtn").click(function()
+		{
+			// 테스트
+			//alert("삭제 버튼 클릭 테스트");
+		});
+		
+	});
+	
+	
+</script>
+
 </head>
 <body>
 
@@ -33,7 +61,9 @@
 		
 		<div>
 			<form action="">
-				<input type="button" value="직원 추가" class="btn"/>
+				<input type="button" value="직원 추가" class="btn"
+				onclick="location.href='employeeinsertform.action'"/>
+				<!-- onclick="location.href='employeeinsertform.jsp'"/> .jsp 는 view 보여주겠다는거 논노노 -->
 			</form>
 		</div>
 	</div>
@@ -103,12 +133,25 @@
 				<td>${employee.regionName }</td>
 				<td>${employee.departmentName }</td>
 				<td>${employee.positionName }</td>
-				<td>${employee.basicPay }</td>
-				<td>${employee.extraPay }</td>
-				<td>${employee.pay }</td>
+				
+				<!-- 구두점(,) 찍는 법 -->
+				<%-- <td>${employee.basicPay }</td> --%>
+				<td><fmt:formatNumber value="${employee.basicPay }" 
+				groupingUsed="true"></fmt:formatNumber></td>
+				
+				<%-- <td>${employee.extraPay }</td> --%>
+				<td><fmt:formatNumber value="${employee.extraPay }" 
+				groupingUsed="true"></fmt:formatNumber></td>
+				
+				<%-- <td>${employee.pay }</td> --%>
+				<td><fmt:formatNumber value="${employee.pay }" 
+				groupingUsed="true"></fmt:formatNumber></td>
+				
 				<td>${employee.grade==0 ? "관리자" : "일반사원" }</td>
-				<td><button type="button" class="btn updateBtn">수정</button></td>
-				<td><button type="button" class="btn deleteBtn">삭제</button></td>
+				<td><button type="button" class="btn updateBtn"
+				value="${employee.employeeId }">수정</button></td>
+				<td><button type="button" class="btn deleteBtn"
+				value="${employee.employeeId }">삭제</button></td>
 				<td></td>
 				
 			</tr>
