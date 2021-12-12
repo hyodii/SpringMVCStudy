@@ -43,6 +43,7 @@
 		   ajaxRequest();
 		   
 		});
+<<<<<<< HEAD
 		
 		// 직원 추가 버튼이 클릭되었을 때 수행해야 할 코드 처리
 		$("#subminBtn").click(function()
@@ -76,6 +77,8 @@
 			$("#employeeForm").submit();
 			
 		});
+=======
+>>>>>>> 045305b891cbfea6776b066c72c16aa7b5904816
 	   
 	});
 	
@@ -131,7 +134,11 @@
 		<h1> [ 직원 추가 ] </h1>
 		<hr />
 		
+<<<<<<< HEAD
 		<form action="employeeinsert.action" method="post" id="employeeForm">
+=======
+		<form action="">
+>>>>>>> 045305b891cbfea6776b066c72c16aa7b5904816
 			<table>
 				<tr>
 					<th>이름</th>

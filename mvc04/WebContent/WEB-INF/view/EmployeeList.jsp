@@ -11,6 +11,7 @@
 <meta charset="UTF-8">
 <title>EmployeeList.jsp</title>
 <link rel="stylesheet" type="text/css" href="<%=cp%>/css/main.css">
+<<<<<<< HEAD
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
 	
@@ -38,6 +39,8 @@
 	
 </script>
 
+=======
+>>>>>>> 045305b891cbfea6776b066c72c16aa7b5904816
 </head>
 <body>
 
@@ -148,10 +151,15 @@
 				groupingUsed="true"></fmt:formatNumber></td>
 				
 				<td>${employee.grade==0 ? "관리자" : "일반사원" }</td>
+<<<<<<< HEAD
 				<td><button type="button" class="btn updateBtn"
 				value="${employee.employeeId }">수정</button></td>
 				<td><button type="button" class="btn deleteBtn"
 				value="${employee.employeeId }">삭제</button></td>
+=======
+				<td><button type="button" class="btn updateBtn">수정</button></td>
+				<td><button type="button" class="btn deleteBtn">삭제</button></td>
+>>>>>>> 045305b891cbfea6776b066c72c16aa7b5904816
 				<td></td>
 				
 			</tr>

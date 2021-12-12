@@ -359,7 +359,7 @@ http://localhost:8090/mvc03/memberlist.action
    - EmployeeListController.java 
      (employeelist.action)
 
-   - EmployeeInsertFormController.java
+   - EmployeeInsertFormController.java			// 이거 입력받기 전에 departmentlist / positionlist / regionlist (id)로 받아와야함
      (employeeinsertform.action)
 
    - AjaxController.java
