@@ -63,6 +63,20 @@ public class EmployeeUpdateFormController implements Controller
 			
 			Employee employee = new Employee();
 			
+			employee = employeeDAO.searchId(employeeId);
+			
+			regionList = regionDAO.list();
+			departmentList = departmentDAO.list();
+			positionList = positionDAO.list();
+			
+			mav.addObject("employee", employee);
+			mav.addObject("regionList", regionList);
+			mav.addObject("departmentList", departmentList);
+			mav.addObject("positionList", positionList);
+			
+			mav.setViewName("/WEB-INF/view/EmployeeUpdateForm.jsp");
+			
+			
 		} catch (Exception e)
 		{
 			System.out.println(e.toString());

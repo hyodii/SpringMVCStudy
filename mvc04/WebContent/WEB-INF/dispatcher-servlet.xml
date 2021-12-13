@@ -36,7 +36,16 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	
 	<!-- DAO 등록 -->
 	<bean id="employeeDAO" class="com.test.mvc.EmployeeDAO">
-		<property name="dataSource" ref="remoteDataSource"></property>
+		<property name="dataSource" ref="localDataSource"></property>
+	</bean>
+	<bean id="regionDAO" class="com.test.mvc.RegionDAO">
+		<property name="dataSource" ref="localDataSource"></property>
+	</bean>
+	<bean id="departmentDAO" class="com.test.mvc.DepartmentDAO">
+		<property name="dataSource" ref="localDataSource"></property>
+	</bean>
+	<bean id="positionDAO" class="com.test.mvc.PositionDAO">
+		<property name="dataSource" ref="localDataSource"></property>
 	</bean>
 	
 	
@@ -61,6 +70,13 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<!-- EmployeeInsertController 등록 -->
 	<bean name="/employeeinsert.action" class="com.test.mvc.EmployeeInsertController">
 		<property name="dao" ref="employeeDAO"></property>
+	</bean>
+	
+	<bean name="/employeeupdateform.action" class="com.test.mvc.EmployeeUpdateFormController">
+		<property name="employeeDAO" ref="employeeDAO"></property>
+		<property name="regionDAO" ref="regionDAO"></property>
+		<property name="departmentDAO" ref="departmentDAO"></property>
+		<property name="positionDAO" ref="positionDAO"></property>
 	</bean>
 	
 </beans>
