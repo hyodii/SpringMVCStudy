@@ -19,8 +19,8 @@
 <fullyQualifiedTypeName name="com.test.mvc.Department"/>
 <fullyQualifiedTypeName name="com.test.mvc.Position"/>
 <fullyQualifiedTypeName name="com.test.mvc.Employee"/>
-<fullyQualifiedTypeName name="com.test.mvc.IEmployeeDAO"/>
 <fullyQualifiedTypeName name="com.test.mvc.IDepartmentDAO"/>
 <fullyQualifiedTypeName name="com.test.mvc.IRegionDAO"/>
 <fullyQualifiedTypeName name="com.test.mvc.IPositionDAO"/>
+<fullyQualifiedTypeName name="com.test.mvc.IEmployeeDAO"/>
 </qualifiedTypeNameHistroy>

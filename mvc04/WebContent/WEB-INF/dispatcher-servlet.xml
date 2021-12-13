@@ -36,16 +36,16 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	
 	<!-- DAO 등록 -->
 	<bean id="employeeDAO" class="com.test.mvc.EmployeeDAO">
-		<property name="dataSource" ref="localDataSource"></property>
+		<property name="dataSource" ref="remoteDataSource"></property>
 	</bean>
 	<bean id="regionDAO" class="com.test.mvc.RegionDAO">
-		<property name="dataSource" ref="localDataSource"></property>
+		<property name="dataSource" ref="remoteDataSource"></property>
 	</bean>
 	<bean id="departmentDAO" class="com.test.mvc.DepartmentDAO">
-		<property name="dataSource" ref="localDataSource"></property>
+		<property name="dataSource" ref="remoteDataSource"></property>
 	</bean>
 	<bean id="positionDAO" class="com.test.mvc.PositionDAO">
-		<property name="dataSource" ref="localDataSource"></property>
+		<property name="dataSource" ref="remoteDataSource"></property>
 	</bean>
 	
 	
@@ -72,6 +72,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="dao" ref="employeeDAO"></property>
 	</bean>
 	
+		<!-- EmployeeUpdateFormController 등록 -->
 	<bean name="/employeeupdateform.action" class="com.test.mvc.EmployeeUpdateFormController">
 		<property name="employeeDAO" ref="employeeDAO"></property>
 		<property name="regionDAO" ref="regionDAO"></property>
@@ -79,4 +80,14 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="positionDAO" ref="positionDAO"></property>
 	</bean>
 	
+		<!-- EmployeeUpdateController 등록 -->
+	<bean name="/employeeupdate.action" class="com.test.mvc.EmployeeUpdateController">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
+	
+		<!-- EmployeeDeleteController 등록 -->
+	<bean name="/employeedelete.action" class="com.test.mvc.EmployeeDeleteController">
+		<property name="dao" ref="employeeDAO"></property>
+	</bean>
+			
 </beans>

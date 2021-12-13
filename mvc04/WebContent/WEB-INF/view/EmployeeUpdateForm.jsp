@@ -143,7 +143,7 @@
 					<th>이름</th>
 					<td>
 						<input type="text" id="name" name="name" 
-						value="${employee.employeeName }"/>
+						value="${employee.name }"/>
 					</td>
 				</tr>
 				<tr>
@@ -271,8 +271,3 @@
 
 
 
-<br />
-<br />
-<br />
-<br />
-<br />
