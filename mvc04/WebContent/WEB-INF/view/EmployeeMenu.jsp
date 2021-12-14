@@ -38,7 +38,7 @@
 		</li>
 		
 		<li>
-			<a href="" class="menu">로그아웃 관리</a>
+			<a href="logout.action" class="menu">로그아웃 관리</a>
 		</li>
 	</ul>
 </div>

@@ -14,13 +14,14 @@
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="org.springframework.web.filter.CharacterEncodingFilter"/>
 <fullyQualifiedTypeName name="org.springframework.jdbc.datasource.SimpleDriverDataSource"/>
-<fullyQualifiedTypeName name="com.test.mvc.Region"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.test.mvc.Department"/>
 <fullyQualifiedTypeName name="com.test.mvc.Position"/>
 <fullyQualifiedTypeName name="com.test.mvc.Employee"/>
 <fullyQualifiedTypeName name="com.test.mvc.IDepartmentDAO"/>
-<fullyQualifiedTypeName name="com.test.mvc.IRegionDAO"/>
 <fullyQualifiedTypeName name="com.test.mvc.IPositionDAO"/>
 <fullyQualifiedTypeName name="com.test.mvc.IEmployeeDAO"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="com.test.mvc.Region"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.test.mvc.IRegionDAO"/>
 </qualifiedTypeNameHistroy>

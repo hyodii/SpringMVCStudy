@@ -9,5 +9,3 @@ C:\SpringMVCStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\28268250
 \mvc00\src
 C:\SpringMVCStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2643483393.index
 \mvc03\src
-C:\SpringMVCStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3823471095.index
-\mvc04\src
