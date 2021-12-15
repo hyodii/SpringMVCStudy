@@ -76,8 +76,10 @@
 					<td>${region.regionId }</td>
 					<td>${region.regionName }</td>
 					<td>${region.delCheck }</td>
-					<td><button type="button" class="btn updateBtn">수정</button></td>
-					<td><button type="button" class="btn deleteBtn">삭제</button></td>
+					<td><button type="button" class="btn updateBtn"
+					value="${region.regionId }">수정</button></td>
+					<td><button type="button" class="btn deleteBtn"
+					value="${region.regionId }">삭제</button></td>
 				</tr>
 			</c:forEach>
 		</table>

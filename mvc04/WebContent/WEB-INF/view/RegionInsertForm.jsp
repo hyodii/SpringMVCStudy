@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>EmployeeInsertForm.jsp </title>
+<title>RegionInsertForm.jsp</title>
 <link rel="stylesheet" type="text/css" href="<%=cp%>/css/main.css">
 <link rel="stylesheet" type="text/css" href="<%=cp%>/css/jquery-ui.css">
 
@@ -24,9 +24,9 @@
 		$("#subminBtn").click(function()
 		{
 			// 데이터 검사(누락된 입력값이 있는지 없는지에 대한 여부 확인)
-			if( $("#name").val()=="")
+			if( $("#regionName").val()=="")
 			{
-				$("#err").html("필수 입력 항목이 누락되었습니다.");
+				$("#err").html("지역 입력 항목이 누락되었습니다.");
 				$("#err").css("display", "inline");
 				return;				//-- submit 액션 처리 중단
 			}

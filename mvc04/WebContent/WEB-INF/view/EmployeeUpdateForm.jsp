@@ -44,7 +44,7 @@
 		   
 		});
 		// 직원 추가 버튼이 클릭되었을 때 수행해야 할 코드 처리
-		$("#subminBtn").click(function()
+		$("#submitBtn").click(function()
 		{
 			// 데이터 검사(누락된 입력값이 있는지 없는지에 대한 여부 확인)
 			if( $("#name").val()=="" || $("#ssn1").val()=="" || $("#ssn1").val()=="" 
@@ -248,7 +248,7 @@
 				<tr>
 					<td colspan="2" align="center">
 						<br><br>
-						<button type="button" class="btn" id="subminBtn"
+						<button type="button" class="btn" id="submitBtn"
 						style="width: 40%">직원 변경</button>
 						<button type="button" class="btn" id="listBtn"
 						style="width: 40%"

@@ -61,7 +61,6 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="dao" ref="employeeDAO"></property>
 	</bean>
 	
-
 		<!-- EmployeeInsertFormController 등록 -->
 	<bean name="/employeeinsertform.action" class="com.test.mvc.EmployeeInsertFormController">
 		<property name="dao" ref="employeeDAO"></property>
@@ -102,6 +101,22 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	</bean>
 	
 	<bean name ="/regioninsertform.action" class="com.test.mvc.RegionInsertFormController">
+		<property name="dao" ref="regionDAO"></property>
+	</bean>
+	
+	<bean name="/regioninsert.action" class="com.test.mvc.RegionInsertController">
+		<property name="dao" ref="regionDAO"></property>
+	</bean>
+	
+	<bean name="/regionupdateform.action" class="com.test.mvc.RegionUpdateFormController">
+		<property name="dao" ref="regionDAO"></property>
+	</bean>
+	
+	<bean name="/regionupdate.action" class="com.test.mvc.RegionUpdateController">
+		<property name="dao" ref="regionDAO"></property>
+	</bean>
+	
+	<bean name="/regiondelete.action" class="com.test.mvc.RegionDeleteController">
 		<property name="dao" ref="regionDAO"></property>
 	</bean>
 	
