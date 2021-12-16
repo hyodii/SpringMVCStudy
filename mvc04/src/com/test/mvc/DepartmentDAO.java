@@ -100,6 +100,7 @@ public class DepartmentDAO implements IDepartmentDAO
 		
 		return result;
 	}
+
 	
 	// 부서 변경
 	@Override
@@ -115,6 +116,33 @@ public class DepartmentDAO implements IDepartmentDAO
 		pstmt.setInt(2, Integer.parseInt(department.getDepartmentId()));
 		result = pstmt.executeUpdate();
 		
+		pstmt.close();
+		conn.close();
+		
+		return result;
+	}
+	
+	// 부서 데이터 검색
+	public Department searchId(String departmentId) throws SQLException
+	{
+		Department result = new Department();
+		
+		Connection conn = dataSource.getConnection();
+		
+		String sql = "SELECT DEPARTMENTID, DEPARTMENTNAME, DELCHECK FROM DEPARTMENTVIEW WHERE DEPARTMENTID=? ORDER BY DEPARTMENTID";
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, Integer.parseInt(departmentId));
+		ResultSet rs = pstmt.executeQuery();
+		
+		if(rs.next())
+		{
+			result.setDepartmentId(rs.getString("DEPARTMENTID"));
+			result.setDepartmentName(rs.getString("DEPARTMENTNAME"));
+			result.setDelCheck(rs.getInt("DELCHECK"));
+		}
+		
+		rs.close();
 		pstmt.close();
 		conn.close();
 		

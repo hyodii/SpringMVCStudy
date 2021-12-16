@@ -2,26 +2,15 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.sound.midi.ControllerEventListener"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.DispatcherServlet"/>
-<fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.Controller"/>
-<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 <fullyQualifiedTypeName name="com.test.mvc.MemberDTO"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="javax.sql.DataSource"/>
 <fullyQualifiedTypeName name="oracle.net.aso.p"/>
 <fullyQualifiedTypeName name="org.springframework.web.filter.CharacterEncodingFilter"/>
 <fullyQualifiedTypeName name="org.springframework.jdbc.datasource.SimpleDriverDataSource"/>
-<fullyQualifiedTypeName name="com.test.mvc.Department"/>
-<fullyQualifiedTypeName name="com.test.mvc.Position"/>
 <fullyQualifiedTypeName name="com.test.mvc.Employee"/>
-<fullyQualifiedTypeName name="com.test.mvc.IDepartmentDAO"/>
-<fullyQualifiedTypeName name="com.test.mvc.IPositionDAO"/>
 <fullyQualifiedTypeName name="com.test.mvc.IEmployeeDAO"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.sql.SQLException"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="com.test.mvc.Region"/>
 <fullyQualifiedTypeName name="com.test.mvc.IRegionDAO"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
@@ -31,4 +20,17 @@
 <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactory"/>
 <fullyQualifiedTypeName name="org.mybatis.spring.SqlSessionFactoryBean"/>
 <fullyQualifiedTypeName name="org.mybatis.spring.SqlSessionTemplate"/>
+<fullyQualifiedTypeName name="com.test.mvc.IDepartmentDAO"/>
+<fullyQualifiedTypeName name="com.test.mvc.Department"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.Controller"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="com.test.mvc.IPositionDAO"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="com.test.mvc.Position"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

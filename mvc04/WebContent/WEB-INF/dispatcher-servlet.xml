@@ -120,9 +120,62 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="dao" ref="regionDAO"></property>
 	</bean>
 	
+	<bean name="/rgnlist.action" class="com.test.mvc.RgnListController">
+		<property name="dao" ref="regionDAO"></property>
+	</bean>
+	
 	<!-- Department 관련 Controller 등록 -->
+	<bean name="/departmentlist.action" class="com.test.mvc.DepartmentListController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+	
+	<bean name="/departmentinsertform.action" class="com.test.mvc.DepartmentInsertFormController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+	
+	<bean name="/departmentinsert.action" class="com.test.mvc.DepartmentInsertController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+	
+	<bean name="/departmentupdateform.action" class="com.test.mvc.DepartmentUpdateFormController">
+   		<property name="dao" ref="departmentDAO"></property>
+   	</bean>
+	
+	<bean name="/departmentupdate.action" class="com.test.mvc.DepartmentUpdateController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+	
+	<bean name="/departmentdelete.action" class="com.test.mvc.DepartmentDeleteController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+	
+	
 	
 	<!-- Position 관련 Controller 등록 -->
+	<bean name="/positionlist.action" class="com.test.mvc.PositionListController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
+	
+	<bean name="/positioninsertform.action" class="com.test.mvc.PositionInsertFormController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
+	
+	<bean name ="/positioninsert.action" class="com.test.mvc.PositionInsertController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
+	
+	<bean name ="/positionupdateform.action" class="com.test.mvc.PositionUpdateFormController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
+	
+	<bean name="/positionupdate.action" class="com.test.mvc.PositionUpdateController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
+	
+	<bean name="/positiondelete.action" class="com.test.mvc.PositionDeleteController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean> 
+	
 	
 	
 	<!-- Login 및 Logout 관련 Controller 등록 -->

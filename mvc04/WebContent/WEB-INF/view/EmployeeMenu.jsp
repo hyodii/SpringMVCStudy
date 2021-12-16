@@ -34,7 +34,7 @@
 		</li>
 		
 		<li>
-			<a href="positionlist.acion" class="menu">직위 관리</a>
+			<a href="positionlist.action" class="menu">직위 관리</a>
 		</li>
 		
 		<li>
