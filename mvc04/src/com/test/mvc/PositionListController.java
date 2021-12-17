@@ -57,7 +57,7 @@ public class PositionListController implements Controller
 			
 			mav.addObject("positionList", positionList);
 			
-			mav.setViewName("/WEB-INF/vie/PositionList.jsp");
+			mav.setViewName("/WEB-INF/view/PositionList.jsp");
 			
 		} catch (Exception e)
 		{

@@ -37,16 +37,18 @@ public class RgnListController implements Controller
 		
 		ModelAndView mav = new ModelAndView();
 		
-		// 세션 처리 추가 ---------------------------------------------------
+		// 세션 처리에 따른 추가 구성-----------------------------------------------------------------
+		
+		// 로그인 여부만 확인 → 관리자인지 확인할 필요 없음.
+		
 		HttpSession session = request.getSession();
 		
-		if(session.getAttribute("name")==null)
+		if (session.getAttribute("name")==null)		//-- 로그인을 하지 못한 상황
 		{
 			mav.setViewName("redirect:loginform.action");
 			return mav;
 		}
-		
-		// --------------------------------------------------- 세션 처리 추가
+		// -----------------------------------------------------------------세션 처리에 따른 추가 구성
 		
 		ArrayList<Region> regionList = new ArrayList<Region>();
 		
@@ -56,7 +58,7 @@ public class RgnListController implements Controller
 			
 			mav.addObject("regionList", regionList);
 			
-			mav.setViewName("/WEB-INF/view/RgnList.jsp");
+			mav.setViewName("/WEB-INF/view/RngList.jsp");
 			
 		} catch (Exception e)
 		{

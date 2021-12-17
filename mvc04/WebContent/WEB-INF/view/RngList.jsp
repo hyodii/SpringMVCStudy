@@ -38,14 +38,12 @@
 			 	<!-- 항목 3EA -->
 				<th>지역 번호</th>
 				<th>지역 이름</th>
-				<th>지역 인원</th>
 			</tr>
 			
 			<c:forEach var="region" items="${regionList}">
 				<tr>
 					<td>${region.regionId }</td>
 					<td>${region.regionName }</td>
-					<td>${region.delCheck }</td>
 				</tr>
 			</c:forEach>
 		</table>

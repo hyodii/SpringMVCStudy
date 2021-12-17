@@ -25,12 +25,12 @@
 <div>
 	<!-- 메뉴 영역  -->
 	<div>
-		<c:import url="EmployeeMenu.jsp"></c:import>
+		<c:import url="EmpMenu.jsp"></c:import>
 	</div>
 	
 	<!-- 콘텐츠 영역  -->
 	<div id="content">
-		<h1>[ 직원 리스트 ]</h1>
+		<h1>[ 직원 리스트 (일반직원 전용) ]</h1>
 		<hr />
 	</div>
 	<!-- 직원 추가 div 제거 -->

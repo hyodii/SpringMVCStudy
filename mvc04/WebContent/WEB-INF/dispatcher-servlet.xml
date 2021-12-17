@@ -94,6 +94,9 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="dao" ref="employeeDAO"></property>
 	</bean>
 	
+		<!-- EmployeeMenuController 등록 -->
+	<bean name="/employeemenu.action" class="com.test.mvc.EmployeeMenuController"></bean>
+	
 	
 	<!-- Region 관련 Controller 등록 -->
 	<bean name="/regionlist.action" class="com.test.mvc.RegionListController">
@@ -120,7 +123,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 		<property name="dao" ref="regionDAO"></property>
 	</bean>
 	
-	<bean name="/rgnlist.action" class="com.test.mvc.RgnListController">
+	<bean name="/rnglist.action" class="com.test.mvc.RgnListController">
 		<property name="dao" ref="regionDAO"></property>
 	</bean>
 	
@@ -146,6 +149,10 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	</bean>
 	
 	<bean name="/departmentdelete.action" class="com.test.mvc.DepartmentDeleteController">
+		<property name="dao" ref="departmentDAO"></property>
+	</bean>
+	
+	<bean name="/deplist.action" class="com.test.mvc.DepListController">
 		<property name="dao" ref="departmentDAO"></property>
 	</bean>
 	
@@ -175,6 +182,10 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<bean name="/positiondelete.action" class="com.test.mvc.PositionDeleteController">
 		<property name="dao" ref="positionDAO"></property>
 	</bean> 
+	
+	<bean name="/poslist.action" class="com.test.mvc.PosListController">
+		<property name="dao" ref="positionDAO"></property>
+	</bean>
 	
 	
 	

@@ -21,16 +21,16 @@
 <div id="menu">
 	<ul>
 		<li>
-			<a href="emplist.action" class="menu">직원 관리</a>
+			<a href="emplist.action" class="menu">직원 목록</a>
 		</li>
 		<li>
-			<a href="rgnlist.action" class="menu">지역 관리</a>
+			<a href="rnglist.action" class="menu">지역 목록</a>
 		</li>
 		<li>
-			<a href="deptlist.action" class="menu">부서 관리</a>
+			<a href="deplist.action" class="menu">부서 목록</a>
 		</li>
 		<li>
-			<a href="pstlist.action" class="menu">직위 관리</a>
+			<a href="poslist.action" class="menu">직위 목록</a>
 		</li>
 		<li>
 			<a href="logout.action" class="menu">로그아웃</a>
