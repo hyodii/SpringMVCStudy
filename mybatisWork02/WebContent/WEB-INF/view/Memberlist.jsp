@@ -23,6 +23,61 @@
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
+<script type="text/javascript">
+
+	$(function()
+	{
+		// 삭제 버튼 클릭 이벤트 등록 및 삭제 액션 처리
+		$(".btnDelete").click(function()
+		{
+			if (confirm("현재 선택한 데이터를 정말 삭제하시겠습니까?"))
+			{
+				$(location).attr("href", "memberdelete.action?mid=" + $(this).val());
+			}
+		});
+		
+		// 수정 버튼 클릭 이벤트 등록 및 수정 액션 처리
+		$(".btnUpdate").click(function()
+		{
+			$("#title").html("회원 정보 수정").css(
+					{
+						"color" : "red",
+						"font-weight" : "bold"
+					});
+			
+			// 여기서의 this는 수정버튼  .parent 이거하는걸 트레버싱이라고함
+			var mid = $(this).parents("tr").find("td:eq(0)").text();
+			var name = $(this).parents("tr").find("td:eq(1)").text(); 		// 부모 tr의 1번째 td의 글자
+			var telephone = $(this).parents("tr").find("td:eq(2)").text();
+			
+			// 위에 담은 변수를 대입
+			$("#mid").val(mid);
+			$("#name").val(name);
+			$("#telephone").val(telephone);
+			
+			$("form").attr("action", "memberupdate.action"); // 지금은 action 속성이 memberinsert.action인데 이것을 바꾸겠다.
+		});
+		
+		
+		// 취소 버튼 클릭 이벤트 등록 및 취소 액션 처리
+		$(".btnCancel").click(function()
+		{
+			$("#title").html("회원 정보 입력").css(
+					{
+						"color" : "black",
+						"font-weight" : "normal"
+					});
+			$("#name").val('');			// 값 비우기
+			$("#telephone").val('');
+			$("form").attr("action", "memberinsert.action"); 
+		});
+		
+		
+	});
+	
+
+</script>
+
 </head>
 <body>
 
@@ -43,6 +98,8 @@
 			
 			<div class="panel-body">
 				<form role="form" action="memberinsert.action" method="post">
+				<!-- role : 어떤 역할을 수행한다~ -->
+					<input type="hidden" id="mid" name="mid">	<!-- update를 위해 mid를 히든으로 숨겨놓는다! -->
 					<div class="form-group">
 						<label for="name">
 							NAME : 

@@ -13,4 +13,7 @@ public interface IMemberDAO
 	public int add(MemberDTO m);
 	public int count();
 	public ArrayList<MemberDTO> list();
+	//public int remove(String mid); 이거든 밑에꺼든 둘다 가능!
+	public int remove(MemberDTO m);
+	public int modify(MemberDTO m);
 }

@@ -16,9 +16,40 @@
 		FROM TBL_MEMBERLIST
 	</select>
 	
-	<select id="add" resultType="java.lang.Integer">
-		INSERT INTO TBL_MEMBERLIST(MID, NAME, TELEPHONE)
-		VALUES(MEMBERLISTSEQ.NEXTVAL, ????, ????)
-	</select>
+	<!-- 마이바이트 코드 #{} → 문자열의 형태로 바인딩 /  ${} → 객체타입 그대로 받음 99.9% 문자열의 형태로 받아서 #이 더 많이 쓰임! -->
+	<insert id="add">	<!-- resultType 지우니까 오류 해결! 메소드에 의존적이지 않음. 그래서 resultType 안 써줘도 됨(굳이 출력 안하니까) -->
+		INSERT INTO TBL_MEMBERLIST(MID, NAME, TELEPHONE)	<!-- add 메소드 호출하면서 memberDTO 넘겨줘야 함 -->
+		VALUES(MEMBERLISTSEQ.NEXTVAL, #{name}, #{telephone})
+	</insert>
+	
+	<delete id="remove">
+		DELETE
+		FROM TBL_MEMBERLIST
+		WHERE MID=#{mid}
+	</delete>
+	
+	<update id="modify">
+      UPDATE TBL_MEMBERLIST
+      SET NAME = #{name}, TELEPHONE = #{telephone}
+      WHERE MID = #{mid}
+   </update>
 	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
