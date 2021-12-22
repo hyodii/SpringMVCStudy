@@ -1,51 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	
-	<!-- ① 기존 코드 -->
-	<!-- ※ Annotation 표기법으로 Controller 객체를 등록한다. -->
-	<context:component-scan base-package="com.test.mybatis" />
-	
-	<!-- ③ mybatis 설정 중(2) dataSource 를 등록하는 과정에서 생겨나는 추가 코드 -->
-	<!-- ※ mybatis 에서 dataSource 를 사용하기 위한 환경 설정 추가 -->
-	<!--    → 『SimpleDriverDataSource 등록』 -->
-	<bean id="localDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
-		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"></property>
-		<property name="username" value="scott"></property>
-		<property name="password" value="tiger"></property>
-	</bean>
-	
-	<bean id="remoteDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
-		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
-		<property name="url" value="jdbc:oracle:thin:@211.238.142.169:1521:xe"></property>
-		<property name="username" value="scott"></property>
-		<property name="password" value="tiger"></property>
-	</bean>
-	
-	
-	<!-- ② mybatis 등록 과정에서 생겨나는 추가 코드 -->
-	<!-- ※ mybatis 를 사용하기 위한 환경 설정 추가 1 : dataSource -->
-	<!--    → 『SqlSessionFactoryBean 등록』 -->
-	<!-- ④ mybatis 를 사용하기 위한 환경 설정 추가 2 : mapperLocations -->
-	<!--    → 『SampleDAO.xml』 등록 -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="localDataSource"></property>
-		<property name="mapperLocations" value="classpath:com/test/mybatis/mapper/*.xml"></property>
-	</bean>
-	
-	<!-- ⑤ sqlSession 등록 과정에서 생겨난느 추가 코드 -->
-	<!-- ※ mybatis 를 사용하기 위한 환경 설정 추가 3 : sqlSession -->
-	<!--    → 『SqlSessionTemplate』 등록 -->
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
-	</bean>
-	
+   
+   
+   <!-- ① 기존 코드 -->
+   <!-- ※ Annotation 표기법으로 Controller 객체를 등록한다. -->
+   <context:component-scan base-package="com.test.mybatis" />
+
+   <!-- ③ mybatis 설정 중(2) dataSource 를 등록하는 과정에서 생겨나는 추가 코드 -->
+   <!-- ※ mybatis 에서 dataSource 를 사용하기 위한 환경 설정 추가 -->
+   <!--    → 『SimpleDriverDataSource』 등록 -->
+   <bean id="remoteDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+      <property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+      <property name="url" value="jdbc:oracle:thin:@211.238.142.169:1521:xe"></property>
+      <property name="username" value="scott"></property>
+      <property name="password" value="tiger"></property>
+   </bean>
+
+   <!-- ② mybatis 등록 과정에서 생겨나는 추가 코드 -->
+   <!-- ※ mybatis 를 사용하기 위한 환경 설정 추가 1 : dataSource-->
+   <!--    → 『sqlSessionFactoryBean』 등록 -->
+   <!-- ④ mybatis 등록 과정에서 생겨나는 추가 코드 -->
+   <!-- ※ mybatis 를 사용하기 위한 환경 설정 추가 2 : mapperLoacations -->
+   <!--    → 『SampleDAO.xml』 등록 -->
+   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="remoteDataSource"></property>
+      <property name="mapperLocations" value="classpath:com/test/mybatis/mapper/*.xml"></property>
+   </bean>
+   
+   <!-- ⑤ sqlSession 등록 과정에서 생겨나는 추가 코드 -->
+   <!-- ※ mybatis 를 사용하기 위한 환경 설정 추가 3 : sqlSession -->
+   <!--    → 『SqlSessionTemplate』 등록 -->
+   <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+      <constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
+   </bean>
 </beans>
