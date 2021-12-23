@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>UploadForm.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+<div>
+	<h1>파일 입력 폼입니다.</h1>
+	<hr>
+</div>
+
+<div>
+	<form action="Receive.jsp" method="post" enctype="multipart/form-data">
+		<input type="file" name="file1" size="50"><br>
+		이건 텍스트 입력
+		<input type="text" name="data" size="30"><br>
+		<input type="submit" value="upload">
+	</form>
+</div>
+
+</body>
+</html>
